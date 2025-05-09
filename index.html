@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy.AI Efficiency Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container-fluid">
+    <div class="row mt-4">
+      <div class="col text-center">
+        <h1 class="display-4">Energy Efficiency Calculator</h1>
+        <p class="lead">Optimize your energy usage and save money!</p>
+      </div>
+    </div>
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-3">
+        <div class="card glass-card p-3">
+          <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+          <div class="mb-3">
+            <label for="state" class="form-label">State</label>
+            <select class="form-select" id="state" required>
+              <option value="">Select State</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <select class="form-select" id="city" required>
+              <option value="">Select City</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card glass-card p-3">
+          <h4><i class="fas fa-bolt"></i> Electricity Rate</h4>
+          <div class="mb-3">
+            <label for="rate" class="form-label">Rate (INR/kWh)</label>
+            <input type="number" class="form-control" id="rate" value="13" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card glass-card p-3">
+          <h4><i class="fas fa-plug"></i> Add Appliance</h4>
+          <div class="mb-3">
+            <label for="appliance" class="form-label">Appliance</label>
+            <select class="form-select" id="appliance" required>
+              <option value="">Select Appliance</option>
+              <option value="Light Bulb">Light Bulb</option>
+              <option value="Tube Light">Tube Light</option>
+              <option value="Fan">Fan</option>
+              <option value="AC">AC</option>
+              <option value="Refrigerator">Refrigerator</option>
+              <option value="TV">TV</option>
+              <option value="Washing Machine">Washing Machine</option>
+              <option value="Geyser">Geyser</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="wattage" class="form-label">Wattage (W)</label>
+            <input type="number" class="form-control" id="wattage" required>
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" value="1" required>
+          </div>
+          <button type="button" class="btn btn-secondary" onclick="addAppliance()">
+            <i class="fas fa-plus"></i> Add Appliance
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4 justify-content-center">
+      <div class="col-md-8">
+        <div class="card glass-card p-3">
+          <h4><i class="fas fa-list"></i> Selected Appliances</h4>
+          <ul id="appliances" class="list-group">
+          </ul>
+          <button type="submit" class="btn btn-primary mt-3" onclick="calculateEfficiency()">
+            <i class="fas fa-calculator"></i> Calculate Efficiency
+          </button>
+          <button type="button" class="btn btn-warning mt-3" onclick="resetForm()">
+            <i class="fas fa-sync"></i> Reset
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="results" class="row mt-4 justify-content-center">
+      <div class="col-md-10">
+        <div class="card glass-card p-3">
+          <h4><i class="fas fa-chart-bar"></i> Results</h4>
+          <div class="row">
+            <div class="col-md-8">
+              <canvas id="energyChart"></canvas>
+            </div>
+            <div class="col-md-4">
+              <div id="savingsInfo" class="card p-3 shadow">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "Maharashtra": ["Mumbai", "Pune", "Nagpur"],
+    "Delhi": ["New Delhi", "Noida", "Gurgaon"],
+    "Karnataka": ["Bangalore", "Mysore", "Hubli"],
+    "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai"]
+}
